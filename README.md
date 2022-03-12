@@ -6,7 +6,12 @@
 
 ## 初始设置
 
-将`DailyReport.sh`和`user.ini`放在同一目录下，并按如下格式填写`user.ini`：
+将`DailyReport.sh`和`user.ini`放在同一目录下，先给`DailyReport.sh`执行权限：
+```
+chmod +x DailyReport.sh
+```
+
+按如下格式填写`user.ini`：
 
 ```
 username=20011xxxx;
