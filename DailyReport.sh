@@ -1,11 +1,15 @@
 #!/bin/bash
 
 # Get user info
-user=$(cat ./user.ini)
-username=${user#*username=}
-username=${username%%;*}
-password=${user#*password=}
-password=${password%%;*}
+#user=$(cat ./user.ini)
+#username=${user#*username=}
+#username=${username%%;*}
+#password=${user#*password=}
+#password=${password%%;*}
+
+# Get user info by parameter passing
+username=$1
+password=$2
 
 # Urlencode the password
 password=$(echo -n $password | xxd -p | tr -d '\n' | sed 's/\(..\)/%\1/g')

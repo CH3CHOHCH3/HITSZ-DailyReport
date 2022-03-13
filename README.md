@@ -14,8 +14,7 @@ chmod +x DailyReport.sh
 按如下格式填写`user.ini`：
 
 ```
-username=20011xxxx;
-password=123456;
+username password
 ```
 
 由于每个人的上报内容各不相同，在此展示如何获得自己的上报内容。
@@ -28,7 +27,7 @@ password=123456;
 
 复制下来的内容中的`--data-raw`一项即为提交的内容。
 
-只需将其中token对应的内容（最后两个%22中间的部分）替换为`$token`，然后整体填入DailReport.sh第142行的双引号之间即可。
+只需将其中token对应的内容（最后两个%22中间的部分）替换为`$token`，然后整体填入DailReport.sh第146行的双引号之间即可。点击右侧直达[DailyReport.sh](DailyReport.sh#L146)
 
 一个例子：
 
@@ -43,7 +42,7 @@ info%3D%7B%22model%22%3A%7B%22dqzt%22%3A%2299%22%2C%22gpsjd%22%3A115.85517%2C%22
 第一次运行crontab时，在命令行输入`crontab -e`给crontab添加作业，输入后可以选择一种编辑方式，在末尾写入
 
 ```
-0 */6 * * * cd /your/path/to/DailyReport && ./DailyReport.sh >> ./log 2>&1
+0 */6 * * * cd /your/path/to/DailyReport && ./DailyReport.sh $(cat user.ini) >> ./log 2>&1
 ```
 
 保存退出后重启crontab：
@@ -54,3 +53,9 @@ service cron restart
 即可实现每六小时填报一次，并将结果写入到`log`文件中。
 
 当然，sh脚本已经有了，定时运行的方式都可以自行安排。
+
+## github action
+
+开启 github action ，在 secrets 中加入 `username` 和 `password` 两个 secrets。
+
+action 的触发在早上 7:00 (23:00 UTC)。
