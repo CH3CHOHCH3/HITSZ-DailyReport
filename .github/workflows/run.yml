@@ -16,4 +16,4 @@ jobs:
         shell: bash
         run: |
           chmod +x DailyReport.sh
-          ./DailyReport.sh ${{ secrets.username }} ${{ secrets.password }}
+          ./DailyReport.sh ${{ secrets.username }} ${{ secrets.password }} ${{ secrets.infohead }}
