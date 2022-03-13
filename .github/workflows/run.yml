@@ -1,0 +1,19 @@
+name: Auto Run Daily
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 23 * * *"
+
+jobs:
+  Report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: run bash script
+        shell: bash
+        run: |
+          chmod +x DailyReport.sh
+          ./DailyReport.sh ${{ secrets.username }} ${{ secrets.password }}
