@@ -40,7 +40,7 @@ info%3D%7B%22model%22%3A%7B%22dqzt%22%3A%2299%22%2C%22gpsjd%22%3A115.85517%2C%22
 
 推荐使用Ubuntu-server已经内置的crontab进行脚本的定时运行。
 
-第一次运行crontab时，在命令行输入`crontab -e`给crontab添加作业，输入后可以选择一种编辑方式，在文件末尾写入
+第一次运行crontab时，在命令行输入`crontab -e`给crontab添加作业，输入后可以选择一种编辑方式，在末尾写入
 
 ```
 0 */6 * * * cd /your/path/to/DailyReport && ./DailyReport.sh >> ./log 2>&1
@@ -49,7 +49,7 @@ info%3D%7B%22model%22%3A%7B%22dqzt%22%3A%2299%22%2C%22gpsjd%22%3A115.85517%2C%22
 保存退出后重启crontab：
 
 ```
-service crontab restart
+service cron restart
 ```
 即可实现每六小时填报一次，并将结果写入到`log`文件中。
 
